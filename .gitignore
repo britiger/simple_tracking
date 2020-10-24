@@ -1,0 +1,29 @@
+config
+
+webapp/venv
+
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+webapp/messages.pot
+*.mo
+
+# External files
+webapp/app/static/css/bootstrap.min.css
+webapp/app/static/js/jquery.min.js
+webapp/app/static/js/bootstrap.min.js
+webapp/app/static/js/leaflet.js
+webapp/app/static/js/leaflet.*.js
+webapp/app/static/css/leaflet.css
+webapp/app/static/css/leaflet.*.css
+webapp/app/static/css/MarkerCluster*.css
+webapp/app/static/css/images/*
+webapp/app/static/js/L.Icon.Pulse.js
+webapp/app/static/fonts/fontawesome-webfont.eot
+webapp/app/static/fonts/fontawesome-webfont.svg
+webapp/app/static/fonts/fontawesome-webfont.ttf
+webapp/app/static/fonts/fontawesome-webfont.woff
+webapp/app/static/fonts/fontawesome-webfont.woff2
+webapp/app/static/css/font-awesome.min.css
+webapp/app/static/css/L.Icon.Pulse.css

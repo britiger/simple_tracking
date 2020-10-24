@@ -1,0 +1,17 @@
+{%- extends "base.html" %}
+
+{% block title %}{{ _('Map') }}{% endblock %}
+
+{% block scripts %}
+    {{super()}}
+    {% include "head_map_js.html" %}
+{% endblock %}
+
+{% block styles %}
+    {{super()}}
+    {% include "head_map_css.html" %}
+{% endblock %}
+
+{% block content %}
+        <div id="mapid"></div>
+{%- endblock %}

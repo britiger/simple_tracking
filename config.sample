@@ -1,0 +1,9 @@
+export PGHOST=localhost
+export PGPORT=5432
+export PGUSER=simple_tracking
+export PGPASSWORD=simple_tracking
+export PGDATABASE=simple_tracking
+export imprint_addr="Any Person
+This Street 42
+12345 Wheretown"
+export imprint_mail=osm@example.org
