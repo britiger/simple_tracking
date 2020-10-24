@@ -2,16 +2,16 @@
 -- CREATE DATABASE simple_tracking OWNER simple_tracking;
 -- CREATE EXTENSION postgis;
 
-CREATE SCHEMA simple_tracking;
+CREATE SCHEMA IF NOT EXISTS simple_tracking;
 
-CREATE TABLE simple_tracking.devices (
+CREATE TABLE IF NOT EXISTS simple_tracking.devices (
     id SERIAL PRIMARY KEY,
     identifier VARCHAR(255) UNIQUE,
     display_name VARCHAR(255),
     valid_identifier BOOLEAN DEFAULT false
 );
 
-CREATE TABLE simple_tracking.positions (
+CREATE TABLE IF NOT EXISTS simple_tracking.positions (
     id SERIAL PRIMARY KEY,
     devices_id INT,
     latest_position BOOLEAN DEFAULT true,
@@ -25,8 +25,8 @@ CREATE TABLE simple_tracking.positions (
       ON DELETE CASCADE
 );
 
-CREATE INDEX positions_device ON simple_tracking.positions(devices_id);
-CREATE INDEX positions_latest ON simple_tracking.positions(latest_position) WHERE latest_position;
+CREATE INDEX IF NOT EXISTS positions_device ON simple_tracking.positions(devices_id);
+CREATE INDEX IF NOT EXISTS positions_latest ON simple_tracking.positions(latest_position) WHERE latest_position;
 
 CREATE OR REPLACE FUNCTION trigger_set_latest()
 RETURNS TRIGGER 
@@ -38,6 +38,7 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
+DROP TRIGGER IF EXISTS insert_new_position ON simple_tracking.positions;
 CREATE TRIGGER insert_new_position
     BEFORE INSERT ON simple_tracking.positions
     FOR EACH ROW
