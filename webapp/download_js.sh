@@ -9,6 +9,8 @@ css_dir=${webapp_dir}/app/static/css
 fonts_dir=${webapp_dir}/app/static/fonts
 img_dir=${webapp_dir}/app/static/img
 
+mkdir -p ${js_dir} ${css_dir} ${fonts_dir} ${img_dir}
+
 function download_file()
 {
     file_name=$1
