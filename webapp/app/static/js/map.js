@@ -26,6 +26,13 @@ var geoJSONLayer = L.geoJSON('', {
             iconState = yellowIcon;
         }
         return L.marker(latlng, {icon: iconState});
+    },
+    filter: function(feature) {
+        var only_active = Cookies.get('also_inactive') != 'true';
+        var valid_only = Cookies.get('valid_only') == 'true';
+        if (only_active && feature.properties.inactive > 60) return false;
+        if (valid_only && !feature.properties.valid) return false;
+        return true;
     }
 }).addTo(mymap);
 
@@ -33,7 +40,6 @@ var openMarker = null;
 var openId = null;
 var updateRunning = false;
 currentPositions = [];
-
 
 function onEachFeature(feature, layer) {
     // generate popupContent

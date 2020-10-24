@@ -25,6 +25,10 @@ def index():
 def map():
     return render_template('map.html')
 
+@bp.route('/settings')
+def settings():
+    return render_template('settings.html')
+
 @bp.route('/imprint')
 def imprint():
     return render_template('imprint.html', imprint_addr=environ.get('imprint_addr'), imprint_mail=environ.get('imprint_mail'))

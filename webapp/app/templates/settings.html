@@ -1,0 +1,38 @@
+{%- extends "base.html" %}
+
+{% block title %}{{ _('Settings') }}{% endblock %}
+
+{% block scripts %}
+    {{super()}}
+    <script>
+
+        function update_settings() {
+                var also_inactive = $("#show_also_inactive")[0].checked;
+                var valid_only = $("#show_valid_only")[0].checked;
+
+                Cookies.set('also_inactive', also_inactive, { expires: 365, path: '/', sameSite: 'strict' });
+                Cookies.set('valid_only', valid_only, { expires: 365, path: '/', sameSite: 'strict' });
+        }
+
+        function get_settings() {
+                $("#show_also_inactive")[0].checked = Cookies.get('also_inactive') == 'true';
+                $("#show_valid_only")[0].checked = Cookies.get('valid_only') == 'true';
+        }
+
+        get_settings();
+    </script>
+{% endblock %}
+
+{% block content %}
+        <h1>{{ _('Settings') }}</h1>
+
+        <form>
+                <div class="form-group">
+                        <label class="form-check-label"><input type="checkbox" id="show_also_inactive" onchange="update_settings()"> {{ _('Show also inactive devices') }}</label>
+                </div>
+                <div class="form-group">
+                        <label class="form-check-label"><input type="checkbox" id="show_valid_only" onchange="update_settings()"> {{ _('Show only verified devices') }}</label>
+                </div>
+        </form>
+
+{%- endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bike Parking Berlin\n"
 "Report-Msgid-Bugs-To: osm@lorenz.lu\n"
-"POT-Creation-Date: 2020-10-22 18:57+0200\n"
+"POT-Creation-Date: 2020-10-25 00:16+0200\n"
 "PO-Revision-Date: 2018-07-06 18:12+0200\n"
 "Last-Translator: Christopher Lorenz <osm@lorenz.lu>\n"
 "Language: de\n"
@@ -19,20 +19,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: app/templates/base.html:16 app/templates/index.html:6
+#: app/templates/base.html:17 app/templates/index.html:6
 msgid "Simple Tracking"
 msgstr ""
 
-#: app/templates/base.html:22 app/templates/map.html:3 app/templates/map.html:6
+#: app/templates/base.html:23 app/templates/map.html:3
 msgid "Map"
 msgstr "Karte"
 
-#: app/templates/base.html:25 app/templates/imprint.html:3
+#: app/templates/base.html:24 app/templates/settings.html:3
+#: app/templates/settings.html:27
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: app/templates/base.html:27 app/templates/imprint.html:3
 #: app/templates/imprint.html:6
 msgid "Imprint"
 msgstr "Impressum"
 
-#: app/templates/base.html:26
+#: app/templates/base.html:28
 msgid "GitHub"
 msgstr ""
 
@@ -43,4 +48,12 @@ msgstr "Kontakt"
 #: app/templates/imprint.html:12
 msgid "Mail"
 msgstr ""
+
+#: app/templates/settings.html:31
+msgid "Show also inactive devices"
+msgstr "Zeige inaktive Geräte"
+
+#: app/templates/settings.html:34
+msgid "Show only verified devices"
+msgstr "Zeige nur verifizierte Geräte"
 

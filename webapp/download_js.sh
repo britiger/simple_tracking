@@ -28,10 +28,12 @@ download_file ${js_dir}/bootstrap.min.js https://unpkg.com/bootstrap@4.5.3/dist/
 # jquery
 download_file ${js_dir}/jquery.min.js https://unpkg.com/jquery@3.5.1/dist/jquery.min.js
 
+# js-cookie
+download_file ${js_dir}/js.cookie.js https://unpkg.com/js-cookie@2.2.1/src/js.cookie.js
+
 # leaflet
 download_file ${js_dir}/leaflet.js https://unpkg.com/leaflet@1.7.1/dist/leaflet.js
 download_file ${css_dir}/leaflet.css https://unpkg.com/leaflet@1.7.1/dist/leaflet.css
-mkdir -p ${css_dir}/images 
 download_file ${css_dir}/images/layers-2x.png https://unpkg.com/leaflet@1.7.1/dist/images/layers-2x.png
 download_file ${css_dir}/images/layers.png https://unpkg.com/leaflet@1.7.1/dist/images/layers.png
 download_file ${css_dir}/images/marker-icon.png https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png
