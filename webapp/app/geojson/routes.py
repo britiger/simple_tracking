@@ -45,6 +45,47 @@ def send():
     return jsonify(request_data)
 
 
+@bp.route('/send_ttn')
+def send_ttn():
+    
+    lat = None
+    lon = None
+
+    request_json = request.json
+    
+    request_data = request_json['payload_fields']
+    request_data['metadata'] = request_json['metadata']
+    request_data['counter'] = request_json['counter']
+    request_data['frequency'] = request_json['metadata']['frequency']
+    request_data['data_rate'] = request_json['metadata']['data_rate']
+
+    if 'latitude' in request_data:
+        lat = request_data['latitude']
+    elif 'lat' in request_data:
+        lat = request_data['lat']
+        
+    if 'longitude' in request_data:
+        lon = request_data['longitude']
+    elif 'lon' in request_data:
+        lon = request_data['lon']
+        
+    ident = request_json['dev_id']
+    ts = request_json['metadata']['time']
+
+    if lat is None or lon is None:
+        print('invalid position')
+    else:
+        sql = text('INSERT INTO simple_tracking.positions (devices_id, data_ts, position, data) VALUES (get_device_id(:ident), (:data_ts)::timestamp, ST_SetSRID(st_point(:lon,:lat), 4326), :data)')
+        db.engine.execute(sql, {
+            'ident': ident, 
+            'data_ts': ts,
+            'lat': lat,
+            'lon': lon,
+            'data': json.dumps(request_data) })
+
+    return jsonify(request_json)
+
+
 def render_geojson_nodes(result):
     features = []
     for row in result:

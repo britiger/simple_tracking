@@ -2,7 +2,7 @@ from flask import render_template as flask_render_template, request, abort
 from app.main import bp
 from app import db
 from os import environ
-from app.geojson.routes import send
+from app.geojson.routes import send, send_ttn
 
 from sqlalchemy import text
 
@@ -18,6 +18,9 @@ def index():
     if request.args.get('lat', default=None) is not None and request.args.get('lon', default=None) is not None:
         # process send of geojson if lat/lon is given
         return send()
+    user_agent = request.headers.get('User-Agent')
+    if user_agent.startswith('http-ttn'):
+        return send_ttn()
 
     return render_template('index.html')
 
