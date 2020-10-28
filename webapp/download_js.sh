@@ -6,10 +6,10 @@ webapp_dir=`dirname $(readlink -f $0)`
 
 js_dir=${webapp_dir}/app/static/js
 css_dir=${webapp_dir}/app/static/css
-fonts_dir=${webapp_dir}/app/static/fonts
+fonts_dir=${webapp_dir}/app/static/webfonts
 img_dir=${webapp_dir}/app/static/img
 
-mkdir -p ${js_dir} ${css_dir} ${fonts_dir} ${img_dir}
+mkdir -p ${js_dir} ${css_dir} ${fonts_dir} ${img_dir} ${css_dir}/images
 
 function download_file()
 {
@@ -47,9 +47,19 @@ download_file ${css_dir}/MarkerCluster.Default.css https://unpkg.com/leaflet.mar
 download_file ${js_dir}/L.Icon.Pulse.js https://unpkg.com/@ansur/leaflet-pulse-icon@0.1.1/src/L.Icon.Pulse.js
 download_file ${css_dir}/L.Icon.Pulse.css https://unpkg.com/@ansur/leaflet-pulse-icon@0.1.1/src/L.Icon.Pulse.css
 # font awesome 
-download_file ${css_dir}/font-awesome.min.css https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css
-download_file ${fonts_dir}/fontawesome-webfont.eot https://unpkg.com/font-awesome@4.7.0/fonts/fontawesome-webfont.eot
-download_file ${fonts_dir}/fontawesome-webfont.ttf https://unpkg.com/font-awesome@4.7.0/fonts/fontawesome-webfont.ttf
-download_file ${fonts_dir}/fontawesome-webfont.svg https://unpkg.com/font-awesome@4.7.0/fonts/fontawesome-webfont.svg
-download_file ${fonts_dir}/fontawesome-webfont.woff https://unpkg.com/font-awesome@4.7.0/fonts/fontawesome-webfont.woff
-download_file ${fonts_dir}/fontawesome-webfont.woff2 https://unpkg.com/font-awesome@4.7.0/fonts/fontawesome-webfont.woff2
+download_file ${css_dir}/all-fa5.min.css https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/css/all.min.css
+download_file ${fonts_dir}/fa-brands-400.eot https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-brands-400.eot
+download_file ${fonts_dir}/fa-brands-400.svg https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-brands-400.svg
+download_file ${fonts_dir}/fa-brands-400.ttf https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-brands-400.ttf
+download_file ${fonts_dir}/fa-brands-400.woff https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-brands-400.woff
+download_file ${fonts_dir}/fa-brands-400.woff2 https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-brands-400.woff2
+download_file ${fonts_dir}/fa-regular-400.eot https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-regular-400.eot
+download_file ${fonts_dir}/fa-regular-400.svg https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-regular-400.svg
+download_file ${fonts_dir}/fa-regular-400.ttf https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-regular-400.ttf
+download_file ${fonts_dir}/fa-regular-400.woff https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-regular-400.woff
+download_file ${fonts_dir}/fa-regular-400.woff2 https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-regular-400.woff2
+download_file ${fonts_dir}/fa-solid-900.eot https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-solid-900.eot
+download_file ${fonts_dir}/fa-solid-900.svg https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-solid-900.svg
+download_file ${fonts_dir}/fa-solid-900.ttf https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-solid-900.ttf
+download_file ${fonts_dir}/fa-solid-900.woff https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-solid-900.woff
+download_file ${fonts_dir}/fa-solid-900.woff2 https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/webfonts/fa-solid-900.woff2

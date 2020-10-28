@@ -65,9 +65,11 @@ function parseKeyValue(key, value) {
     switch (key) {
         case 'lat':
         case 'lon':
+        case 'latitude':
+        case 'longitude':
             return '';
         case 'timestamp':
-            key = '<i class="fa fa-clock-o" title="timestamp"></i>';
+            key = '<i class="far fa-clock" title="timestamp"></i>';
             value = (new Date(value*1000)).toLocaleString();
             break;
         case 'batt':
@@ -96,21 +98,37 @@ function parseKeyValue(key, value) {
             break;
         case 'bearing':
         case 'heading':
-            key = '<i class="fa fa-compass" title="heading"></i>';
+            key = '<i class="far fa-compass" title="heading"></i>';
             value = parseInt(value) + ' °';
             break;
         case 'altitude':
-            key = '<i class="fa fa-area-chart" title="altitude"></i>';
+            key = '<i class="fas fa-chart-area" title="altitude"></i>';
             value = parseInt(value) + ' m';
             break;
         case 'accuracy':
         case 'hdop':
             key = '<i class="fa  fa-bullseye" title="accuracy"></i>';
-            value = parseInt(value);
+            value = parseInt(Math.round(value*10.0))/10.0;
             break;
         case 'speed':
-            key = '<i class="fa  fa-angle-double-right" title="speed"></i>';
+            key = '<i class="fas fa-tachometer-alt" title="speed"></i>';
             value = parseInt(value) + ' km/h';
+            break;
+        case 'sats':
+            key = '<i class="fas fa-satellite" title="satellite"></i>';
+            break;
+        case 'frequency':
+            key = '<i class="fas fa-wave-square" title="frequency"></i>';
+            value += ' MHz';
+            break;
+        case 'metadata':
+            key = 'gateways';
+            if (value.gateways) {
+                key = '<i class="fas fa-satellite-dish" title="gateways"></i>';
+                value = value.gateways.length;
+            } else {
+                return '';
+            }
             break;
     }
 
