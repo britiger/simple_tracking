@@ -19,7 +19,7 @@ def index():
         # process send of geojson if lat/lon is given
         return send()
     user_agent = request.headers.get('User-Agent')
-    if user_agent.startswith('http-ttn'):
+    if user_agent.startswith('http-ttn') or user_agent.startswith('TheThingsStack'):
         return send_ttn()
 
     return render_template('index.html')

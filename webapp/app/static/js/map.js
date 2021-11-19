@@ -119,6 +119,9 @@ function parseKeyValue(key, value) {
             break;
         case 'frequency':
             key = '<i class="fas fa-wave-square" title="frequency"></i>';
+            if (parseFloat(value) > 100000) { // Value in Hz
+                value = parseFloat(value)/1000/1000
+            }
             value += ' MHz';
             break;
         case 'metadata':
