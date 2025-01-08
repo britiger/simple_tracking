@@ -12,7 +12,7 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     db.init_app(app)
-    babel.init_app(app)
+    babel.init_app(app, locale_selector=get_locale)
     
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
@@ -25,6 +25,5 @@ def create_app(config_class=Config):
 
     return app
 
-@babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(current_app.config['LANGUAGES'])
