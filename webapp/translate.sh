@@ -1,6 +1,8 @@
 #!/bin/bash
 
+set -o allexport
 source ../config
+set +o allexport
 
 python3 -m venv venv
 source venv/bin/activate

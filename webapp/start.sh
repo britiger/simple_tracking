@@ -1,6 +1,8 @@
 #!/bin/bash
 
+set -o allexport
 source ../config
+set +o allexport
 
 export PGHOST
 export PGPORT
